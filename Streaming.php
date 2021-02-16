@@ -4,8 +4,8 @@
 </head>
 <body>
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="MinLIste.php">Min Liste</a>
+  <a class="active" href="Streaming.php">Home</a>
+  <a href="MinListe.php">Min Liste</a>
   <a href="FortsætMedAtSe.php">Fortsæt med at se</a>
 
   <div class="dropdown">
