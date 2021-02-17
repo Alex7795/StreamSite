@@ -4,9 +4,9 @@
 </head>
 <body>
 <div class="topnav">
-  <a class="active" href="Streaming.php">Home</a>
+  <a href="Streaming.php">Home</a>
   <a href="MinListe.php">Min Liste</a>
-  <a href="FortsætMedAtSe.php">Fortsæt med at se</a>
+  <a class="active" href="FortsætMedAtSe.php">Fortsæt med at se</a>
 
   <div class="dropdown">
     <button class="dropbtn">Film
@@ -19,7 +19,7 @@
     </div>
   </div> 
   <div class="dropdown">
-    <button class="dropbtn">Serier 
+    <button class="dropbtn">Serier
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
