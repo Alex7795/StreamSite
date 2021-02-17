@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<title>Du Er DuM aT hØrE pÅ</title>
+<h1 style="text-align: center">Homarus GAMMARUS</h1>
+
+<form id="login" action="http://localhost/login.php" method="post">
+  <div class="imgcontainer">
+    <img src="https://solidstarts.com/wp-content/uploads/lobster_edited-scaled.jpg" alt="Avatar" class="avatar" width="350" height="450">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <button id="loginbutton" type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <a href="signup.html"><button type="button" class="signupbtn">Sign Up</button></a>
+</div>
+</form>
+
+</body>
+<script>
+  document.querySelector("#loginbutton").addEventListener("click", function(event){
+    if(document.getElementById("psw").value.trim() != "" && document.getElementById("uname").value.trim() != "") {
+      document.getElementById("login").submit();
+    }
+    else {
+      document.getElementById("psw").style = "border: none";
+      document.getElementById("uname").style = "border: none";
+
+      if(document.getElementById("uname").value.trim() != "") {
+        document.getElementById("psw").style = "border: 2px solid red";
+        alert("You forgot to write your password")
+      }
+      else {
+        document.getElementById("uname").style = "border: 2px solid red";
+        alert("You forgot to write a username")
+      }
+    }
+    event.preventDefault();
+  });
+  </script>
+</html>
