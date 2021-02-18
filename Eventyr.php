@@ -5,8 +5,6 @@ require('db_connect.php');
 $find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes WHERE movie_type = 'Fantasy'");
 while($row = mysqli_fetch_assoc($find_videos)) {
   $id = $row['id'];
-  $name = $row['name'];
-  $my_list = $row['my_list'];
   $thumbnail = $row['picture'];
   echo '<div style="text-align:center;display:inline-block">';
   echo '<div style="display:block">';

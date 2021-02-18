@@ -2,18 +2,17 @@
 require('layout.php');
 require('db_connect.php');
   
-$sql = "SELECT `picture`, `name`, `id`, `my_list` FROM `hyper_videoes` where `my_list`=1";
-$result = $conn->query($sql);
-if (mysqli_num_rows($result) > 0) {
-  while($row = mysqli_fetch_assoc($result)) {
-    echo '<div style="text-align:center;display:inline-block">';
-    echo '<div style="display:block">';
-    echo '<label style="display:block"><b>'.$row["name"].'</b></label>';
-    echo '<input type="checkbox" name="checkbox" '.($row["my_list"]==1 ? 'checked ' : '').'onclick="myFunction('.$row["id"].')" id="'.$row["id"].'"/><label>Min liste</label>';
-    echo '</div>';
-    echo '<input class="grid-item" type="image" src="'.$row["picture"].'" alt="Submit" width="200" height="300">';
-    echo '</div>';
-  }
+$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes where `my_list`=1");
+while($row = mysqli_fetch_assoc($find_videos)) {
+  $id = $row['id'];
+  $thumbnail = $row['picture'];
+  echo '<div style="text-align:center;display:inline-block">';
+  echo '<div style="display:block">';
+  echo '<label style="display:block"><b>'.$row["name"].'</b></label>';
+  echo '<input type="checkbox" name="checkbox" '.($row["my_list"]==1 ? 'checked ' : '').'onclick="myFunction('.$row["id"].')" id="'.$row["id"].'"/><label>Min liste</label>';
+  echo '</div>';
+  echo '<a href="watch_temp.php?id='.$id.'"><input class="item" type="image" src="'.$thumbnail.'" alt="Submit" width="200" height="300"></a>';
+  echo '</div>';
 }
 ?>
   </div>

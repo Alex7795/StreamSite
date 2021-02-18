@@ -3,7 +3,6 @@ require('db_connect.php');
 
 $name = $_POST['uname'];
 $psw = $_POST['psw'];
-
 $password = md5($psw);
 
 $sql = "SELECT `password` FROM `login` where username='$name'";
