@@ -31,5 +31,16 @@
 
   <input type="text" placeholder="Search..">
 </div>
+<div class="container">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
+</div>
 
 </body>
