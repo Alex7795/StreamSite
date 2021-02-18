@@ -32,6 +32,8 @@
   <input type="text" placeholder="Search..">
 </div>
 
+
+
 <div class="container">
 <input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
 <input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
@@ -44,4 +46,15 @@
 <input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
 </div>
 
+ <?php
+require('db_connect.php');
+  $find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes");
+while($row = mysqli_fetch_assoc($find_videos)) {
+  $id = $row['id'];
+  $name = $row['name'];
+
+  echo "<a href='watch_temp.php?id=".$id."'>$name</a><br>";
+}
+?>
 </body>
+ 
