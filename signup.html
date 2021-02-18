@@ -1,0 +1,52 @@
+<html>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="signup-style.css">
+  <body>
+    <title>Du Er DuM aT hØrE pÅ</title>
+    <form id="signup" class="modal-content" action="create.php" method="POST">
+      <div class="container">
+        <h1 style="text-align: center">Homarus GAMMARUS</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+        
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+                
+        <div class="clearfix">
+          <a href="login.html"><button type="button" class="cancelbtn">Cancel</button></a>
+          <button id="signupbutton" type="button" class="signupbtn">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script>
+    document.querySelector("#signupbutton").addEventListener("click", function(event){
+      if(document.getElementById("psw").value === document.getElementById("psw-repeat").value && document.getElementById("uname").value.trim() != "") {
+        document.getElementById("signup").submit();
+      }
+      else {
+        document.getElementById("psw-repeat").style = "border: none";
+        document.getElementById("uname").style = "border: none";
+
+        if(document.getElementById("uname").value.trim() != "") {
+          document.getElementById("psw-repeat").style = "border: 2px solid red";
+          alert("The passwords was not identical")
+        }
+        else {
+          document.getElementById("uname").style = "border: 2px solid red";
+          alert("You forgot to write a username")
+        }
+      }
+      event.preventDefault();
+    });
+    </script>
+</html>
