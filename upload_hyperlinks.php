@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
     $genre = $_POST['genre'];
 
     if(!empty($movie_name) && !empty($video)) {
-        mysqli_query($conn, "INSERT INTO hyper_videoes (name, video, embed_code, picture, movie_type) VALUES ('$movie_name', '$video', '$embed_code', '$thumbnail', '$genre')");
+        mysqli_query($conn, "INSERT INTO `hyper_videoes` (`name`, `video`, `embed_code`, `picture`, `movie_type`) VALUES ('$movie_name', '$video', '$embed_code', '$thumbnail', '$genre')");
     }
 
     //mysqli_close($conn);

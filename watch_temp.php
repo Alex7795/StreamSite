@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<!-- <title>Watch Videos</title> -->
-</head>
-<body>
-
 <?php
+require('layout.php');
 require('db_connect.php');
 
 $id = $_GET['id'];
@@ -16,9 +10,13 @@ while($row = mysqli_fetch_assoc($find_video)) {
     $code = $row['embed_code'];
 }
 ?>
+<div style="display:block">
 <title>Now Watching <?= $name; ?></title>
 <h1><?= $name; ?></h1>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $code; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
 </body>
 </html>
