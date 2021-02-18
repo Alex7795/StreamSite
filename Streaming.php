@@ -32,46 +32,24 @@
   <input type="text" placeholder="Search..">
 </div>
 <div class="grid-container" style="padding:15px">
-<div class="container">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-<input class="item" type="image" src="img/Woods.jpg" alt="Submit" width="200" height="300">
-</div>
+
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "valgfag";
+require('db_connect.php');
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-  $sql = "SELECT `picture`, `name` FROM `hyper_videoes`";
-  $result = $conn->query($sql);
-  if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-      echo '<div style="text-align:center;display:inline-block">';
+$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes");
+while($row = mysqli_fetch_assoc($find_videos)) {
+  $id = $row['id'];
+  $name = $row['name'];
+  $thumbnail = $row['picture'];
+  echo '<div style="text-align:center;display:inline-block">';
       echo '<div style="display:block">';
       echo '<label style="display:block"><b>'.$row["name"].'</b></label>';
       echo '<input type="checkbox" name="checkbox" id="'.$row["name"].'"/><label>Min liste</label>';
       echo '</div>';
-      echo '<input class="grid-item" type="image" src="'.$row["picture"].'" alt="Submit" width="200" height="300">';
+      echo '<a href="watch_temp.php?id='.$id.'"><input class="item" type="image" src="'.$thumbnail.'" alt="Submit" width="200" height="300"></a>';
       echo '</div>';
-    }
-  }
+}
 ?>
-  </div>
+</div>
 
 </body>
