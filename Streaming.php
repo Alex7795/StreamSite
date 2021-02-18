@@ -46,7 +46,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-  $sql = "SELECT `picture`, `name` FROM `hyper_videoes`";
+  $sql = "SELECT `picture`, `name`, `id`, `my_list` FROM `hyper_videoes`";
   $result = $conn->query($sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -54,7 +54,7 @@ if (!$conn) {
       echo '<div style="text-align:center;display:inline-block">';
       echo '<div style="display:block">';
       echo '<label style="display:block"><b>'.$row["name"].'</b></label>';
-      echo '<input type="checkbox" name="checkbox" id="'.$row["name"].'"/><label>Min liste</label>';
+      echo '<input type="checkbox" name="checkbox" '.($row["my_list"]==1 ? 'checked ' : '').'onclick="myFunction('.$row["id"].')" id="'.$row["id"].'"/><label>Min liste</label>';
       echo '</div>';
       echo '<input class="grid-item" type="image" src="'.$row["picture"].'" alt="Submit" width="200" height="300">';
       echo '</div>';
@@ -64,13 +64,13 @@ if (!$conn) {
   </div>
 </body>
 <script>
-var checkbox = document.getElementById(<?= $?>);
-
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-  } else {
-    console.log("Checkbox is not checked..");
+function myFunction(id) {
+  var checkBox = document.getElementById(id);
+  if (checkBox.checked == true) {
+    window.location.href = 'ajax.php?id=' + id + '&back=Streaming' 
+  } 
+  else {
+    window.location.href = 'ajax.php?id=' + id + '&back=Streaming' 
   }
-});
+}
 </script>
