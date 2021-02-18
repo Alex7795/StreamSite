@@ -23,21 +23,23 @@ if (mysqli_num_rows($result) > 0) {
   // output data of each row
   while($row = mysqli_fetch_assoc($result)) {
     if($row["username"] === $name) {
-      header("Location: /signup.html");
+      header("Location: signup.html");
+    }
+    else {
+      header("Location: login.html");
     }
   }
 } else {
-  header("Location: /login.html");
+  header("Location: signup.html");
 }
 
 $sql = "Insert into `login` (username, password) values ('$name', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+  header("Location: login.html");
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  header("Location: signup.html");
 }
 
 mysqli_close($conn);
-echo "Connected successfully";
 ?>
