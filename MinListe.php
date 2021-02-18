@@ -31,5 +31,7 @@
 
   <input type="text" placeholder="Search..">
 </div>
+<div class="grid-container" style="padding:15px">
 
+</div>
 </body>
