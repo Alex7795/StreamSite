@@ -34,7 +34,7 @@
 <?php
 require('db_connect.php');
 
-$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes");
+$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes WHERE movie_type = 'Comedy'");
 while($row = mysqli_fetch_assoc($find_videos)) {
   $id = $row['id'];
   $name = $row['name'];
