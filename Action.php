@@ -15,7 +15,6 @@
     <div class="dropdown-content">
       <a class="active" href="Action.php">Action</a>
       <a href="Gyser.php">Gyser</a>
-      <a href="Komedie.php">Komedie</a>
     </div>
   </div> 
   <div class="dropdown">
@@ -23,8 +22,7 @@
     
     </button>
     <div class="dropdown-content">
-      <a class="active" href="Action.php">Action</a>
-      <a href="Gyser.php">Eventyr</a>
+      <a href="Eventyr.php">Eventyr</a>
       <a href="Komedie.php">Komedie</a>
     </div>
   </div> 
@@ -38,7 +36,7 @@
 <?php
 require('db_connect.php');
 
-$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes");
+$find_videos = mysqli_query($conn, "SELECT * FROM hyper_videoes WHERE movie_type = 'Action'");
 while($row = mysqli_fetch_assoc($find_videos)) {
   $id = $row['id'];
   $name = $row['name'];
