@@ -30,6 +30,7 @@
   <input type="text" placeholder="Search..">
 </div>
 <div class="grid-container" style="padding:15px">
+<div class="container">
 <?php
 require('db_connect.php');
 
@@ -49,6 +50,7 @@ while($row = mysqli_fetch_assoc($find_videos)) {
 }
 ?>
   </div>
+</div>
 </body>
 <script>
 function myFunction(id) {
